@@ -1,5 +1,4 @@
-#ifndef __LEX_H_
-#define __LEX_H_
+#pragma once
 
 #include <fstream>
 #include <vector>
@@ -71,5 +70,3 @@ public:
 	Lex get_lex();
 	static int get_line() {return line;}
 };
-
-#endif

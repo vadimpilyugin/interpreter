@@ -1,0 +1,7 @@
+#! ../../build/bin/interpreter
+
+program
+{
+	int a, b;
+	a + b = a;
+}

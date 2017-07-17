@@ -13,42 +13,37 @@ string Lex::lex_type()
 {
 	switch(type())
 	{
-	case LEX_IDENT: return "Идентификатор"; break;
-	case LEX_STR: return "Строковая константа"; break;
-	case LEX_NUM: return "Целое число"; break;
-	case LEX_DELIM: return "Разделитель"; break;
-	case LEX_WORD: return "Служебное слово"; break;
-	case LEX_BOOL: return "Булевская константа"; break;
-	case LEX_EOF: return "Лексема конца файла"; break;
-	case LEX_ERR: return "Ошибочная лексема"; break;
-	//Лексический анализ
-	case OP_EXPR: return string("Выражение типа ") + data; break;
-	case LEX_VAR: return "Переменная"; break;
-	case INT_VAR: return "Целочисленная переменная"; break;
-	case STR_VAR: return "Строковая переменная"; break;
-	case BOOL_VAR: return "Булевская переменная"; break;
-	//case BOOL_VAR: return "Переменная " + idents[n]._name + "типа bool"; break;
-	//Синтаксический анализ
-	case POLIZ_EMPTY: return data; break;
-	case POLIZ_FGO: return "Оператор перехода по лжи"; break;
-	case POLIZ_TGO: return "Оператор перехода по истине"; break;
-	case POLIZ_LABEL: return string("Ссылка на элемент номер ") + toString(n); break;
-	case POLIZ_GO: return "Оператор безусловного перехода"; break;
-	//Построение ПОЛИЗа
-	case BOOL_EXPR: return string("Выражение типа bool"); break;
-	case INT_EXPR: return string("Выражение типа int"); break;
-	case STR_EXPR: return string("Выражение типа string"); break;
-	//Интерпретация
-	default: throw Excp (*this, "Неопознанная лексема"); break;
+		case LEX_IDENT: return "Идентификатор"; break;
+		case LEX_STR: return "Строковая константа"; break;
+		case LEX_NUM: return "Целое число"; break;
+		case LEX_DELIM: return "Разделитель"; break;
+		case LEX_WORD: return "Служебное слово"; break;
+		case LEX_BOOL: return "Булевская константа"; break;
+		case LEX_EOF: return "Лексема конца файла"; break;
+		case LEX_ERR: return "Ошибочная лексема"; break;
+		//Лексический анализ
+		case OP_EXPR: return string("Выражение типа ") + data; break;
+		case LEX_VAR: return "Переменная"; break;
+		case INT_VAR: return "Целочисленная переменная"; break;
+		case STR_VAR: return "Строковая переменная"; break;
+		case BOOL_VAR: return "Булевская переменная"; break;
+		//case BOOL_VAR: return "Переменная " + idents[n]._name + "типа bool"; break;
+		//Синтаксический анализ
+		case POLIZ_EMPTY: return data; break;
+		case POLIZ_FGO: return "Оператор перехода по false"; break;
+		case POLIZ_TGO: return "Оператор перехода по true"; break;
+		case POLIZ_LABEL: return string("Ссылка на элемент номер ") + toString(n); break;
+		case POLIZ_GO: return "Оператор безусловного перехода"; break;
+		//Построение ПОЛИЗа
+		case BOOL_EXPR: return string("Выражение типа bool"); break;
+		case INT_EXPR: return string("Выражение типа int"); break;
+		case STR_EXPR: return string("Выражение типа string"); break;
+		//Интерпретация
+		default: throw Excp (*this, "Неопознанная лексема"); break;
 	}
 }
-string Lex::toString(int n)
-{
-	stringstream tmp;
-	tmp << n;
-	string s;
-	tmp >> s;
-	return s;
+string Lex::toString(int n) {
+	return to_string (n);
 }
 string Lex::lex_val()
 {
@@ -64,7 +59,8 @@ string &Lex::str()
 {
 	if(_type != LEX_VAR)
 		return data;
-	return idents[n].str();
+	else
+		return idents[n].str();
 }
 
 int &Lex::num()

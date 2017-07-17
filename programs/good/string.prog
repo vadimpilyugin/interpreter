@@ -1,4 +1,4 @@
-#! ./interpreter
+#! ../../build/bin/interpreter
 
 program
 {

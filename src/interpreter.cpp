@@ -7,7 +7,7 @@ using namespace std;
 #include "syntax.h"
 #include "table.h"
 
-#define DEBUG 1
+#define DEBUG 0
 
 class Interpreter
 {

@@ -1,0 +1,7 @@
+#! ../../build/bin/interpreter
+
+program
+{
+	int a = -20;
+	string a = "string";
+}
