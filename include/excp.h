@@ -1,5 +1,4 @@
-#ifndef EXCP_H_INCLUDED
-#define EXCP_H_INCLUDED
+#pragma once
 
 #include <string>
 using namespace std;
@@ -22,5 +21,3 @@ public:
 	const string &err_type() const {return _err_type; }
 	int get_line() {return _line; }
 };
-
-#endif // EXCP_H_INCLUDED

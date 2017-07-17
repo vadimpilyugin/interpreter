@@ -1,0 +1,7 @@
+#! ../../build/bin/interpreter
+
+program
+{
+	int i = 0;%
+	write("Hello!\n");
+}

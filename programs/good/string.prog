@@ -1,0 +1,7 @@
+#! ../../build/bin/interpreter
+
+program
+{
+	string s1 = "Hello, ", s2 = "World!\n";
+	write(s1+s2);
+}

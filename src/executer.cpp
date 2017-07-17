@@ -44,16 +44,6 @@ void Executer::execute(Poliz &prog)
 			st.top().num() = !st.top().num();
 			st.top().type() = BOOL_EXPR;
 			st.top().str() = "";
-			/*
-			if(st.top().type() == LEX_VAR)
-			{
-				bool tmp = !var().flag();
-				st.pop();
-				st.push( Lex (BOOL_EXPR, "", 0, tmp) );
-			}
-			else
-				st.top().flag() = !st.top().flag();
-			//continue;*/
 			index ++;
 		}
 		else if(c_str == "and" || c_str == "or")
@@ -67,22 +57,6 @@ void Executer::execute(Poliz &prog)
 				st.push( Lex (BOOL_EXPR, "", tmp1 && tmp2) );
 			else
 				st.push( Lex (BOOL_EXPR, "", tmp1 || tmp2) );
-			/*
-			if(st.top().type() == LEX_VAR)
-				tmp1 = var().flag();
-			else
-				tmp1 = st.top().flag();
-			st.pop();
-			if(st.top().type() == LEX_VAR)
-				tmp2 = var().flag();
-			else
-				tmp2 = st.top().flag();
-			st.pop();
-			if(c_str == "and")
-				st.push( Lex (BOOL_EXPR, "", 0, tmp1 && tmp2) );
-			else
-				st.push( Lex (BOOL_EXPR, "", 0, tmp1 || tmp2) );
-			//continue;*/
 			index ++;
 		}
 		else if(c_type == POLIZ_GO)
@@ -106,25 +80,6 @@ void Executer::execute(Poliz &prog)
 					index = label;
 				else
 					index ++;
-			/*
-
-			bool flag;
-			st.pop();
-			if(st.top().type() == LEX_VAR)
-				flag = var().flag();
-			else
-				flag = st.top().flag();
-			st.pop();
-			if(c_type == POLIZ_FGO)
-				if(!flag)
-					index = label.num();
-				else
-					index ++;
-			else
-				if(flag)
-					index = label.num();
-				else
-					index ++;*/
 		}
 		else if(c_str == "write")
 		{
@@ -142,37 +97,6 @@ void Executer::execute(Poliz &prog)
 					cout << "False";
 			}
 			index ++;
-			/*
-			if(st.top().type() == LEX_VAR)
-			{
-				if(var().type() == "int")
-					cout << var().num();
-				else if(var().type() == "string")
-					cout << var().str();
-				else if(var().type() == "bool")
-				{
-					if(var().flag())
-						cout << "True";
-					else
-						cout << "False";
-				}
-			}
-			else
-			{
-				if(st.top().type() == LEX_NUM || st.top().type() == INT_EXPR)
-					cout << st.top().num();
-				else if(st.top().type() == LEX_STR || st.top().type() == STR_EXPR)
-					cout << var().str();
-				else if(st.top().type() == LEX_BOOL || st.top().type() == BOOL_EXPR)
-				{
-					if(st.top().flag())
-						cout << "True";
-					else
-						cout << "False";
-				}
-			}
-			st.pop();
-			index ++;*/
 		}
 		else if(c_str == "read")
 		{

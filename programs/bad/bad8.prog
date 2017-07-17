@@ -1,0 +1,8 @@
+#! ../../build/bin/interpreter
+
+program
+{
+	int a;
+	string b;
+	write(a+b);
+}

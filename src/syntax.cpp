@@ -192,7 +192,7 @@ void Parser::description()
 			type = INT_VAR;
 		else if(c_str == "string")
 			type = STR_VAR;
-		else if(c_str == "bool")
+		else // if(c_str == "bool")
 			type = BOOL_VAR;
 		gl();
 		variable(type);

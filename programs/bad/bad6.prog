@@ -1,0 +1,8 @@
+#! ../../build/bin/interpreter
+
+program
+{
+	int i;
+	if(i + 6)
+		write("Bad");
+}
